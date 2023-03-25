@@ -1,4 +1,4 @@
-class ReviewController < ApplicationController
+class ReviewsController < ApplicationController
   before_action :set_restaurant, only: %i[new create]
 
   def new
