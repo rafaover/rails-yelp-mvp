@@ -1,14 +1,21 @@
-<p style="color: green"><%= notice %></p>
+<div class="container">
+  <div class="row justify-content-center mb-4">
+    <h1 class="text-center">Restaurants</h1>
+    <div class="col-12 text-center">
+    <%= link_to "New restaurant", new_restaurant_path, class: "btn btn-success" %>
+    </div>
+  </div>
 
-<h1>Restaurants</h1>
-
-<div id="restaurants">
-  <% @restaurants.each do |restaurant| %>
-    <%= render restaurant %>
-    <p>
-      <%= link_to "Show this restaurant", restaurant %>
-    </p>
-  <% end %>
+  <div id="restaurants" class="row justify-content-center">
+    <% @restaurants.in_groups_of(3, false).each do |restaurants| %>
+      <div class="row mb-4">
+        <% restaurants.compact.each do |restaurant| %>
+          <div class="col-md-4">
+            <%= render restaurant %>
+            <%= link_to "View restaurant details", restaurant, class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>
-
-<%= link_to "New restaurant", new_restaurant_path %>
