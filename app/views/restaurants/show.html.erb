@@ -3,9 +3,26 @@
     <div class="card-body">
       <%= render @restaurant %>
     </div>
+
+    <%# Reviews cards %>
+    <div class="card-body">
+      <h4>Reviews</h4>
+      <% @restaurant.reviews.each do |review| %>
+        <div class="card mb-3">
+          <div class="card-body">
+            <p class="card-text"><strong>Rating:</strong> <%= review.rating %></p>
+            <p class="card-text"><%= review.content %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="justify-content-start">
+      <%= link_to "New Review", new_restaurant_review_path(@restaurant), class: "btn btn-primary" %>
   </div>
   <div class="row justify-content-center">
-    <div class="col-md-6 text-center">
+    <div class="col-md-6 text-center py-5">
       <%= link_to "Back to restaurants", restaurants_path, class: "btn btn-primary" %>
     </div>
   </div>
