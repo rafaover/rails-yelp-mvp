@@ -6,7 +6,7 @@ class RestaurantsController < ApplicationController
     @restaurants = Restaurant.all
   end
 
-  # GET /restaurants/1 or /restaurants/1.json
+  # GET /restaurants/1
   def show; end
 
   # GET /restaurants/new
@@ -14,7 +14,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new
   end
 
-  # POST /restaurants or /restaurants.json
+  # POST /restaurants
   def create
     @restaurant = Restaurant.new(restaurant_params)
 
