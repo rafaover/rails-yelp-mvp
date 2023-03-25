@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-  before_action :set_restaurant, only: %i[show destroy]
+  before_action :set_restaurant, only: %i[show]
 
   # GET /restaurants or /restaurants.json
   def index
@@ -20,11 +20,9 @@ class RestaurantsController < ApplicationController
 
     respond_to do |format|
       if @restaurant.save
-        format.html { redirect_to restaurant_url(@restaurant), notice: "Restaurant was successfully created." }
-        format.json { render :show, status: :created, location: @restaurant }
+        redirect_to restaurant_url(@restaurant), notice: "Restaurant was successfully created."
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @restaurant.errors, status: :unprocessable_entity }
+        render :new, status: :unprocessable_entity
       end
     end
   end
