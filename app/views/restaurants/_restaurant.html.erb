@@ -1,22 +1,11 @@
-<div id="<%= dom_id restaurant %>">
-  <p>
-    <strong>Name:</strong>
-    <%= restaurant.name %>
-  </p>
-
-  <p>
-    <strong>Address:</strong>
-    <%= restaurant.address %>
-  </p>
-
-  <p>
-    <strong>Phone number:</strong>
-    <%= restaurant.phone_number %>
-  </p>
-
-  <p>
-    <strong>Category:</strong>
-    <%= restaurant.category %>
-  </p>
-
+<div class="card mb-3" id="<%= dom_id restaurant %>">
+  <div class="card-body">
+    <h4 class="card-title"><%= restaurant.name %></h4>
+    <p class="card-text">
+      <strong>Address:</strong> <%= restaurant.address %><br>
+      <strong>Phone number:</strong> <%= restaurant.phone_number %><br>
+      <strong>Category:</strong> <%= restaurant.category %><br>
+      <strong>Rating:</strong> <%= restaurant.reviews.average(:rating) %>
+    </p>
+  </div>
 </div>
